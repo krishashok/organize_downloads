@@ -105,11 +105,15 @@ def log(filename,folder, logfile):
 
 def main():
 
-    # Do an initial setup to see if the subfolders we need are there and create them if required
-    initial_setup()
+    # For now, if the current folder is not named Downloads, just quit and do nothing for safety purposes
+    if os.getcwd().split('/')[-1].lower() != "downloads":
+        print "Please run this only from your Downloads directory"
+    else:
+        # Do an initial setup to see if the subfolders we need are there and create them if required
+        initial_setup()
 
-    # Process files in the current directory now
-    process_files()
+        # Process files in the current directory now
+        process_files()
 
 
 if __name__ == '__main__':
